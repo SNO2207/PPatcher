@@ -1,4 +1,4 @@
-# Parallels Desktop local licensing PoC
+# PPatcher
 
 This repository contains one self-contained Python entrypoint, [`parallels_onefile.py`](parallels_onefile.py), and the evidence behind a local test on Parallels Desktop **27.0.3 (58680) for Apple silicon**. It builds a separately signed application bundle with the client, dispatcher, and VM changes from the investigation, installs a restricted Shared/NAT networking helper, and can check DNS and HTTPS in an already registered Windows guest. No Parallels application, guest disk, certificate, private key, license, or account token is included.
 
