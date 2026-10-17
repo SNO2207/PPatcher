@@ -8,7 +8,7 @@ The observed result on 17 October 2026 was specific: a linked clone started and 
 
 - Apple silicon Mac with Parallels Desktop 27.0.3 build 58680 or a 27.x package whose three executable `__TEXT.__text` sections and all anchors still match that reviewed build.
 - A separate, unmodified Parallels Desktop application bundle supplied by the operator. The currently patched installation is not valid build input.
-- Xcode command-line tools, Python 3.9 or newer, and a local Apple Development signing identity. The identity must have a ten-character Team ID. The identity string is supplied on the command line and no private key is exported.
+- Xcode command-line tools, Python 3.10 or newer, and a local Apple Development signing identity. The identity must have a ten-character Team ID. The identity string is supplied on the command line and no private key is exported.
 - A stopped VM and a quit Parallels UI before installing. Administrator authorization is needed to replace the application and install the root helper.
 - An existing registered Windows VM with Parallels Tools for `verify-guest`; the test used `Premium Linked Clone PoC`. The script patches Parallels' **VM executable**. It does not generate a Windows installation or clone a guest disk.
 
