@@ -452,14 +452,17 @@ def install(output: Path, target: Path) -> None:
     root_script = temp / "install.sh"
     root_script.write_text(shell)
     root_script.chmod(0o700)
-    if os.geteuid() == 0:
-        run("/bin/sh", root_script)
-    else:
-        command = f"/bin/sh {shlex.quote(str(root_script))}"
-        applescript = temp / "install.applescript"
-        applescript.write_text("do shell script " + json.dumps(command) +
-                              ' with administrator privileges with prompt "Install the locally built Parallels research app and network helper."\n')
-        run("/usr/bin/osascript", applescript)
+    try:
+        if os.geteuid() == 0:
+            run("/bin/sh", root_script)
+        else:
+            command = f"/bin/sh {shlex.quote(str(root_script))}"
+            applescript = temp / "install.applescript"
+            applescript.write_text("do shell script " + json.dumps(command) +
+                                  ' with administrator privileges with prompt "Install the locally built Parallels research app and network helper."\n')
+            run("/usr/bin/osascript", applescript)
+    finally:
+        shutil.rmtree(temp, ignore_errors=True)
     print(f"Installed at {target}; retained backup at {backup}")
 
 
