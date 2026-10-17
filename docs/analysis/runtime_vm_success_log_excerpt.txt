@@ -1,0 +1,24 @@
+Dispatcher and client:
+10-17 12:20:51.928 F /disp:16852:9746a/ Can't load license info.
+10-17 12:20:51.928 F /disp:16852:9746a/ loaded license state: [is not valid], PRL_ERR_LICENSE_NOT_VALID (0xffffd508)
+10-17 12:20:51.948 F /prl_client_app:16828:97410/ [LICENSE] License status PRL_ERR_LICENSE_NOT_VALID
+10-17 12:21:34.575 W /PrlGui:16828:97410/ Message data: IssuerId={VM_UUID}; Code=PRL_NET_PRLNET_OPEN_FAILED; Type=Critical; Spontanous=1; CanBeHidden=0; ForceShow=0; UseActive=0; EventHandle=0xfb51; DefaultButton=1; Hint=0x0; ReportGenerated=0; Answers=[OK]; Short="Network initialization failed."; Long="Your virtual machine will continue working normally but will have no network connection."; Details="";
+10-17 12:21:35.875 F /disp:16852:97c77/ Vm state was changed from VMS_STARTING to VMS_RUNNING for vm {VM_UUID} (name='Premium Linked Clone PoC'), to powerState 0(vpsNormal)
+10-17 12:21:35.876 F /prl_client_app:16828:97410/ localhost: received event PET_DSP_EVT_VM_STATE_CHANGED, VM state is <VMS_RUNNING>
+10-17 12:21:35.877 F /prl_client_app:16828:97410/ Updating VM state: VMS_STARTING >>> VMS_RUNNING
+10-17 12:21:35.877 F /disp:16852:97c77/ Received response PRL_ERR_SUCCESS (0) for DspCmdVmStart(1001) request from vm {VM_UUID} (name='Premium Linked Clone PoC')
+10-17 12:21:35.882 F /prl_client_app:16828:97410/ localhost: received result for [DspCmdVmStart]. RC = [PRL_ERR_SUCCESS]
+
+VM:
+10-17 12:21:25.045 F /vm:16932:97b18/ ***** VM process started
+10-17 12:21:34.571 F /vm:16932:97c7d/ [Profile] SetVmConfig creation time is 1 msecs
+10-17 12:21:34.571 F /StateMachine:16932:97c7d/ VM state(VmStateNone): changed to VmStateInit2
+10-17 12:21:36.721 I /MonitorArm:16932:97cf9/ VCPU0 PSCI: PSCI_VERSION
+10-17 12:21:37.254 F /vdisk:16932:97cea/ Write to MBR detected
+10-17 12:21:37.708 I /MonitorArm:16932:97cf9/ VCPU0 PSCI: PSCI_VERSION
+10-17 12:21:38.072 I /MonitorArm:16932:97cf9/ VCPU0 PSCI: PSCI_VERSION
+10-17 12:21:38.077 I /MonitorArm:16932:97cf9/ VCPU0 PSCI: CPU_ON(target_cpu = 1, entry_point_addr = 1106f5010, context_id = 4007a000)
+10-17 12:21:38.079 I /MonitorArm:16932:97cf9/ VCPU0 PSCI: CPU_ON(target_cpu = 2, entry_point_addr = 1106f5010, context_id = 4007b000)
+10-17 12:21:38.080 I /MonitorArm:16932:97cf9/ VCPU0 PSCI: CPU_ON(target_cpu = 3, entry_point_addr = 1106f5010, context_id = 4007c000)
+
+UI observation: Windows 11 Setup displayed installation progress; About said this copy of Parallels Desktop is currently not active.

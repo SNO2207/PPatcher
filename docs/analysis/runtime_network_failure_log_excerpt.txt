@@ -1,0 +1,13 @@
+VM log, 2026-10-17 12:21:34 local time (identifiers omitted):
+10-17 12:21:34.573 F /prl_net/ vmnet_start_interface started.
+10-17 12:21:34.574 F /prl_net/ if_created_handler: 1001 0x0
+10-17 12:21:34.574 F /LocalDevices/ [CNetDevice 0] try 0: av_bind err 1001
+10-17 12:21:34.574 F /prl_net/ vmnet_start_interface started.
+10-17 12:21:34.574 F /prl_net/ if_created_handler: 1001 0x0
+10-17 12:21:34.574 F /LocalDevices/ [CNetDevice 0] try 1: av_bind err 1001
+10-17 12:21:34.574 F /vm/ Sending warning PRL_NET_PRLNET_OPEN_FAILED
+10-17 12:21:34.574 F /LocalDevices/ Failed to setup bind-mode virtual netif #0: 0xfffff057
+
+The same status recurred on VM restart at 12:25:20. Apple's installed vmnet.h
+defines VMNET_FAILURE=1001 (general failure) and VMNET_NOT_AUTHORIZED=1010.
+The observed result does not by itself identify the underlying cause.

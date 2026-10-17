@@ -1,0 +1,60 @@
+{
+  "stage": "macOS AMFI startup diagnosis",
+  "prior_vm_signed_sha256": "cad9fce33d39cd8251ac0b5d5a90d30a4573e92a13b69e9036a51cc219154135",
+  "staged_launchable_vm_signed_sha256": "2d55cf2d1ac20a396c32afcb86980ad5b87daa7f3b06bf35bbf427bbc542329b",
+  "prior_signature_static_codesign": "passed deep strict verification",
+  "amfid": {
+    "AppleMobileFileIntegrityError": -424,
+    "message": "The file is adhoc signed but contains restricted entitlements",
+    "observed_process": "prl_vm_app",
+    "observed_result": "SIGKILL (exit 137), before VM process log initialization"
+  },
+  "entitlement_probe": {
+    "ad_hoc_no_entitlements": "process launched; returned 255 for --version",
+    "allow_unsigned_executable_memory_only": "process launched; returned 255 for --version",
+    "hypervisor_only": "process launched; returned 255 for --version",
+    "vm_device_access_only": "killed with SIGKILL",
+    "vm_networking_only": "killed with SIGKILL",
+    "developer_certificate_with_all_four": "killed with SIGKILL",
+    "ad_hoc_with_allowed_two": "process launched; returned 255 for --version"
+  },
+  "staged_entitlements": {
+    "com.apple.security.cs.allow-unsigned-executable-memory": true,
+    "com.apple.security.hypervisor": true
+  },
+  "staged_codesign_deep_strict": "passed",
+  "runtime_guest_boot": "Windows 11 Setup ran under VM process signed with only the two launchable entitlements",
+  "network_limitation": "VM warned PRL_NET_PRLNET_OPEN_FAILED and continued without network",
+  "network_runtime_evidence": {
+    "interface_call": "vmnet_start_interface",
+    "callback_status": 1001,
+    "retries": 2,
+    "failed_device": "bind-mode virtual netif #0",
+    "apple_sdk_status_meaning": "VMNET_FAILURE: general failure",
+    "distinct_not_authorized_status": 1010,
+    "repeated_after_restart": true,
+    "standalone_probe": {
+      "source": "vmnet_probe.c",
+      "normal_user": {
+        "uid": 501,
+        "euid": 501,
+        "start_status": 1001
+      },
+      "administrator": {
+        "uid": 0,
+        "euid": 0,
+        "start_status": 1000,
+        "stop_status": 1000
+      },
+      "persistent_host_changes": false
+    },
+    "interpretation": "Host virtual-interface creation failed. The identical standalone vmnet call fails as the normal user and succeeds as administrator, strongly supporting a privilege or entitlement cause. The locally signed VM lacks the original restricted networking entitlement. The probe does not establish that every Parallels networking parameter is otherwise correct."
+  },
+  "networking_resolution": {
+    "status": "resolved for Shared/NAT via an authorized XPC packet helper",
+    "vm_process_uid": 501,
+    "dns_and_https_verified_inside_guest": true,
+    "licensing_patch_sections_preserved": true,
+    "evidence": "../networking/runtime_success.json"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "source_signed_sha256": "015007975ed17d07b77892ba0689c557dbf779ab33b76fce8b5b37a0d7533e3b",
+  "va": "0x1000589cc",
+  "file_offset": "0x589cc",
+  "original": "15030035",
+  "replacement": "1f2003d5",
+  "meaning": "Ignore nonzero license validation status after VM configuration is parsed",
+  "patched_unsigned_sha256": "ea29db51cea6de0a5172526bcd8ecbb3da1e67b7a4ee4bc13817711049046d4d"
+}

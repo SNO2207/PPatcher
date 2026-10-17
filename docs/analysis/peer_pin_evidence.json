@@ -1,0 +1,75 @@
+{
+  "original_vm_sha256": "79afaead95e143397c0e753ee9a2196fca6226eea74b635f855cb68539d786f3",
+  "patched_vm_unsigned_sha256": "abfe091400b9bf45d878396d0d535e1a3bba27e9f2e912a2632002a82456f3fd",
+  "hook_va": "0x100974440",
+  "hook_original": "e00340f9",
+  "hook_patched": "f036da17",
+  "helper_va": "0x100002000",
+  "helper_size": 196,
+  "pinned_dispatcher_cdhash": "b2c37da2a3043d388da2696ea905a2acad23769e",
+  "pinned_dispatcher_identifier": "com.parallels.desktop.dispatcher",
+  "confirmed_assembler_branches": {
+    "1": {
+      "source": "0x100002010",
+      "target": "0x100995ae4",
+      "kind": "BL"
+    },
+    "2": {
+      "source": "0x10000202c",
+      "target": "0x100995ae4",
+      "kind": "BL"
+    },
+    "3": {
+      "source": "0x100002040",
+      "target": "0x1009958c8",
+      "kind": "BL"
+    },
+    "4": {
+      "source": "0x100002050",
+      "target": "0x10099585c",
+      "kind": "BL"
+    },
+    "5": {
+      "source": "0x100002060",
+      "target": "0x100995850",
+      "kind": "BL"
+    },
+    "6": {
+      "source": "0x100002070",
+      "target": "0x100999450",
+      "kind": "BL"
+    },
+    "7": {
+      "source": "0x100002084",
+      "target": "0x100995aa8",
+      "kind": "BL"
+    },
+    "8": {
+      "source": "0x100002090",
+      "target": "0x100974508",
+      "kind": "B"
+    },
+    "9": {
+      "source": "0x100002098",
+      "target": "0x100974508",
+      "kind": "B"
+    },
+    "10": {
+      "source": "0x1000020a4",
+      "target": "0x100974510",
+      "kind": "B"
+    }
+  },
+  "verification": [
+    "IDA decoded dispatcher identifier check and Team ID fallback in original VM process",
+    "The macOS Security framework returned key unique with a 20-byte dispatcher CDHash matching codesign",
+    "IDA decoded hook, helper calls, and return branches in patched VM copy",
+    "Full staged application passed codesign --verify --deep --strict"
+  ],
+  "runtime_result": "VM logged Failed to get VM configuration; dispatcher received PRL_ERR_VM_POWER_ON_FAILED",
+  "previous_dispatcher_cdhash": "79c3b4ec47b8b32fb8ca4877dd9f6d5af64e7034",
+  "previous_unsigned_vm_sha256": "0fb4660f6b6a7132f91fad7e192a9f8958f9a62ea78abbc4087d320ea13cf83a",
+  "vm_connected_to_dispatcher": true,
+  "guest_booted_at_peer_repair_stage": false,
+  "later_guest_booted_after_vm_license_gate_patches": true
+}

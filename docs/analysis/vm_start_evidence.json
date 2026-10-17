@@ -1,0 +1,34 @@
+{
+  "build": "27.0.3-58680 ARM64",
+  "vm_function_va": "0x100057E14",
+  "failed_log_string_va": "0x100A0EB6B",
+  "license_parser_va": "0x1000FFF90",
+  "ida_observation": "VM startup function logs Failed to get VM configuration if any of three packet fields is empty, a decoded object is empty, or the two input strings supplied to the license-information parser are empty; parser also requires two nonempty strings and decodes is_trial, is_purchased_online, and product fields. IDA pseudocode alone does not identify which subcondition occurred at runtime.",
+  "runtime_vm_log": "Failed to get VM configuration; PRL_ERR_VM_POWER_ON_FAILED",
+  "runtime_dispatcher_log": "VM client connected; VmInfo.pvi missing warning; PRL_ERR_LICENSE_NOT_VALID loaded at dispatcher startup",
+  "installed_final_build": {
+    "service_signed_sha256": "90c777e1d676d482fd725c115105008a35153891a0d81ef0d5ecb80e286adce4",
+    "vm_signed_sha256": "a92d5c9167dad1d47da082e5554254d5dd703e1771de02ebf10d2d33c78e0e0f",
+    "vm_team_id": "NT7B2P5VPY",
+    "vm_cdhash": "e8bcf5a4b88b41d95b8796181c489b234abd6950",
+    "dispatcher_cdhash": "b2c37da2a3043d388da2696ea905a2acad23769e",
+    "codesign_deep_strict": "passed",
+    "vendor_installation_check": "passed",
+    "client_signed_sha256": "9344137fd1161ee524d4d5e3bca99a743d50d8910d291db56ce9ba610f90d847"
+  },
+  "guest_booted": true,
+  "interpretation_limit": "The original VM startup gates were confirmed by sequential runtime experiments, but full product activation and other premium features remain unverified.",
+  "latest_runtime_result": {
+    "profile": "boot-demo + peer identity repairs + VM parser and status gates",
+    "time_local": "2026-10-17 12:21:25 America/Chicago",
+    "vm_process_started": true,
+    "vm_connected_to_dispatcher": true,
+    "vm_configuration_parsed": true,
+    "vm_started_successfully": true,
+    "guest_booted": true,
+    "result": "Dispatcher received PRL_ERR_SUCCESS for DspCmdVmStart; VMS_RUNNING; guest reached Windows 11 Setup and installation progress",
+    "network": "PRL_NET_PRLNET_OPEN_FAILED; VM continues without network",
+    "license_state": "Dispatcher logged PRL_ERR_LICENSE_NOT_VALID; About reported currently not active",
+    "windows_eula_action": "No agreement was accepted by this agent"
+  }
+}

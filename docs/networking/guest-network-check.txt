@@ -1,0 +1,40 @@
+Running network diagnostics as the logged-in Windows user
+
+CHECK_BEGIN: IP configuration
+
+Windows IP Configuration
+
+
+Ethernet adapter Ethernet:
+
+   IPv4 Address. . . . . . . . . . . : 192.168.2.2
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+                                       192.168.2.1
+
+CHECK_END: IP configuration; GUEST_COMMAND_EXIT=0
+
+CHECK_BEGIN: DNS resolution
+Non-authoritative answer:
+
+
+Name:    example.com
+Addresses:  2606:4700:10::6814:179a
+	  2606:4700:10::ac42:93f3
+	  172.66.147.243
+	  104.20.23.154
+
+
+CHECK_END: DNS resolution; GUEST_COMMAND_EXIT=0
+
+CHECK_BEGIN: HTTPS example.com
+<!doctype html><html lang=en><head><meta charset=utf-8><link rel=icon href=data:,><meta name=viewport content="width=device-width,initial-scale=1"><title>Example Domain</title><style>html{color-scheme:light dark;background:light-dark(#eee,#222)}body{font:16px/1.6 system-ui,sans-serif;max-width:26em;margin:auto;padding:25vh 2em 2em;text-align:center}</style></head><body><p>This domain is for use in documentation examples without needing permission. This is not a service; avoid relying on it for testing and monitoring purposes.</p><script src=/s.js></script></body></html>
+
+HTTP_CODE=200;TLS_VERIFY=0
+
+CHECK_END: HTTPS example.com; GUEST_COMMAND_EXIT=0
+
+CHECK_BEGIN: HTTPS Apple connectivity endpoint
+<HTML><HEAD><TITLE>Success</TITLE></HEAD><BODY>Success</BODY></HTML>
+HTTP_CODE=200;TLS_VERIFY=0
+
+CHECK_END: HTTPS Apple connectivity endpoint; GUEST_COMMAND_EXIT=0

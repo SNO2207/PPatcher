@@ -1,0 +1,40 @@
+{
+  "verified_at": "2026-10-17T12:47:13.495319-05:00",
+  "version": "27.0.3 (58680)",
+  "host_macos": "27.0.1 (26A434)",
+  "vm_name": "Premium Linked Clone PoC",
+  "vm_process_pid": 18044,
+  "vm_process_uid": 501,
+  "helper_process_uid": 0,
+  "network_mode": "Apple vmnet Shared/NAT through XPC packet proxy",
+  "ipv4": "192.168.2.2",
+  "ipv4_gateway": "192.168.2.1",
+  "dns_example_com_succeeded": true,
+  "https": [
+    {
+      "url": "https://example.com/",
+      "http_status": 200,
+      "tls_verify_result": 0,
+      "guest_exit_code": 0
+    },
+    {
+      "url": "https://www.apple.com/library/test/success.html",
+      "http_status": 200,
+      "tls_verify_result": 0,
+      "guest_exit_code": 0
+    }
+  ],
+  "license_state_at_host_start": "PRL_ERR_LICENSE_NOT_VALID at 2026-10-17 12:41:59 America/Chicago",
+  "original_patched_binary_sections_identical": true,
+  "whole_app_deep_strict_signature_verified": true,
+  "vm_signed_sha256": "ab2a86b903ad309bb92b3887eb3b05690f4553c4caadf026179cc9e4b0a620f9",
+  "vm_cdhash": "846a609897957c9e8084bd4b9ea8e4c093a78fb4",
+  "helper_path": "/Library/PrivilegedHelperTools/local.codex.parallels-poc.vmnet",
+  "launchd_plist": "/Library/LaunchDaemons/local.codex.parallels-poc.vmnet.plist",
+  "helper_sha256": "5384bdb082b14c9305725c9ecb34c98e03a0c8fa7e88394272c4ef425f764a5c",
+  "limitations": [
+    "Shared/NAT only; bridging and port forwarding are not implemented.",
+    "Throughput, long-duration stability, host reboot, and all premium capabilities were not tested.",
+    "Small asynchronous session/bridge handles remain allocated until their process exits."
+  ]
+}

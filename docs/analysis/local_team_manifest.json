@@ -1,0 +1,9 @@
+{
+  "source_sha256": "7619a65c4c1f223f65eb8d50702713f96a64a06174be434a9478806fbb330485",
+  "patched_sha256": "d1247b1933af4aa23c6aeb0309f92ffd76e1fe3da992592f53f63baec54507ae",
+  "va": "0x100681e08",
+  "file_offset": "0x681e08",
+  "original": "4C6364ACXT",
+  "replacement": "NT7B2P5VPY",
+  "scope": "shared Team ID literal used by three local peer-verifier routines; code-signing identifier checks remain"
+}

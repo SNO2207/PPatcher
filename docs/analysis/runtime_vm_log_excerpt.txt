@@ -1,0 +1,5 @@
+10-17 12:06:50.456 F /vm:15824:9208d/ ***** VM process started
+10-17 12:06:53.248 W /vm:15824:9208d/ Validating peer PID
+10-17 12:06:53.261 F /vm:15824:92110/ Failed to get VM configuration
+10-17 12:06:53.261 F /vm:15824:92110/ (!) Error: Throwing exception id=4294967252 (PRL_ERR_VM_POWER_ON_FAILED).
+10-17 12:06:53.261 F /vm:15824:92110/ VM successfully stopped.

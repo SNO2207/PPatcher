@@ -1,0 +1,74 @@
+{
+  "profile": "boot-demo",
+  "build": "27.0.3-58680 ARM64",
+  "baseline_profile": "feature-demo",
+  "baseline_guest_start_result": "Blocked before VM engine launch by client activation validation",
+  "baseline_log_time_local": "2026-10-17 11:14:04 America/Chicago",
+  "baseline_error": "PRL_ERR_LICENSE_NOT_VALID",
+  "boot_sites": [
+    {
+      "binary": "prl_client_app",
+      "va": "0x10013B5C0",
+      "identified_method": "CTaskLaunchVm::checkLicense",
+      "identification": "CTaskLaunchVm Qt dispatch 0x1005BF09C, method index 13",
+      "original": "ff8301d1f65703a9",
+      "replacement": "00008052c0035fd6",
+      "meaning": "Return success before launching CTaskValidateLicense",
+      "runtime_gate_observed": true
+    },
+    {
+      "binary": "prl_disp_service",
+      "va": "0x100057FC8",
+      "function": "0x100057CA4",
+      "original": "c01a0034",
+      "replacement": "d6000014",
+      "meaning": "Take the license-acceptance branch to 0x100058320 at the VM-start call site",
+      "runtime_gate_observed": false,
+      "static_evidence": "Calls shared status reader 0x100279B3C; nonzero path logs Failed to start VM: license status and rejects the request."
+    }
+  ],
+  "additional_client_restrictions_method": {
+    "va": "0x10013BC68",
+    "original_behavior": "returns zero; unchanged"
+  },
+  "shared_license_status_and_edition_readers_changed": false,
+  "unsigned_copies_verified": true,
+  "tests_passed": 10,
+  "ida_replacement_disassembly_verified": true,
+  "signed_staged_bundle_verifies": true,
+  "installed": true,
+  "runtime_boot_result": "CheckLicense passed; VM process rejected dispatcher peer and exited",
+  "guest_booted": true,
+  "pinned_peer_repair_installed": true,
+  "reciprocal_peer_repair_installed": true,
+  "later_runtime_result": {
+    "profile": "boot-demo + peer identity repairs + VM license-parser conjunction bypass",
+    "time_local": "2026-10-17 12:14:40 America/Chicago",
+    "vm_process_started": true,
+    "vm_connected_to_dispatcher": true,
+    "vm_configuration_parsed": true,
+    "guest_booted": false,
+    "result": "VM logged Failed to set VM configuration; dispatcher received PRL_ERR_VM_POWER_ON_FAILED",
+    "ida_cause": "Second status gate at 0x1000589CC branches on nonzero validation result stored at VM object offset 0x470 by sub_1000FFF90"
+  },
+  "latest_runtime_result": {
+    "profile": "boot-demo + peer identity repairs + VM parser and status gates",
+    "time_local": "2026-10-17 12:21:25 America/Chicago",
+    "vm_process_started": true,
+    "vm_connected_to_dispatcher": true,
+    "vm_configuration_parsed": true,
+    "vm_started_successfully": true,
+    "guest_booted": true,
+    "result": "Dispatcher received PRL_ERR_SUCCESS for DspCmdVmStart; VMS_RUNNING; guest reached Windows 11 Setup and installation progress",
+    "network": "PRL_NET_PRLNET_OPEN_FAILED; VM continues without network",
+    "license_state": "Dispatcher logged PRL_ERR_LICENSE_NOT_VALID; About reported currently not active",
+    "windows_eula_action": "No agreement was accepted by this agent"
+  },
+  "license_status_branch": {
+    "va": "0x1000589CC",
+    "original": "15030035",
+    "replacement": "1f2003d5",
+    "source": "sub_1000FFF90 stores sub_1001A205C result at VM object offset 0x470",
+    "runtime_effect": "VM advanced past SetVmConfig and booted Windows 11 Setup"
+  }
+}

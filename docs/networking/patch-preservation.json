@@ -1,0 +1,20 @@
+{
+  "Contents/MacOS/prl_client_app": {
+    "all_original_sections_identical": true,
+    "section_count": 33,
+    "text_sha256_before": "6734ec4202685231e2acffdb1321cb006bd73febfe33bd04643ff9f372cd6fe0",
+    "text_sha256_installed": "6734ec4202685231e2acffdb1321cb006bd73febfe33bd04643ff9f372cd6fe0"
+  },
+  "Contents/MacOS/Parallels Service.app/Contents/MacOS/prl_disp_service": {
+    "all_original_sections_identical": true,
+    "section_count": 30,
+    "text_sha256_before": "56c6107b0baa5596ed3f1e79ddf7e4abf17dbe1990063ca0e90346f40e25f363",
+    "text_sha256_installed": "56c6107b0baa5596ed3f1e79ddf7e4abf17dbe1990063ca0e90346f40e25f363"
+  },
+  "Contents/MacOS/Parallels VM.app/Contents/MacOS/prl_vm_app": {
+    "all_original_sections_identical": true,
+    "section_count": 35,
+    "text_sha256_before": "5f0cb8e66ae964dce20eab013ebfd9854e045103b5d27b9c73940bd70d9e225a",
+    "text_sha256_installed": "5f0cb8e66ae964dce20eab013ebfd9854e045103b5d27b9c73940bd70d9e225a"
+  }
+}

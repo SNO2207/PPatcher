@@ -1,0 +1,19 @@
+# Do not commit vendor binaries, guest images, build products, or signing material.
+*.app/
+*.pvm/
+*.dmg
+*.iso
+*.p12
+*.pfx
+*.mobileprovision
+*.dylib
+*.o
+*.a
+*.zip
+__pycache__/
+build/
+dist/
+Parallels-PoC-Build/
+manifest.json
+*.log
+.DS_Store

@@ -1,0 +1,9 @@
+{
+  "source_signed_sha256": "9f943328fea0af4df65468f36e2438d721970e5a32c441bbe399da6e7a0f3649",
+  "patched_unsigned_sha256": "11addf19c7c7e2291c67f05cab071c51a6a8f43a998d601837e8d368e4252217",
+  "va": "0x10005839C",
+  "file_offset": "0x5839c",
+  "original": "0801180a",
+  "replacement": "1f2003d5",
+  "meaning": "Remove license parser boolean from conjunction with nonempty VM configuration object"
+}

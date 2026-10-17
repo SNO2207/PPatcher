@@ -1,0 +1,5 @@
+10-17 12:05:54.818 F /disp:15739:9190f/ Can't load license info.
+10-17 12:05:54.818 F /disp:15739:9190f/ loaded license state: [is not valid], PRL_ERR_LICENSE_NOT_VALID (0xffffd508)
+10-17 12:06:53.248 F /disp:15739:9210a/ Client [Vm] state changed [Connected] uuid [{VM_UUID}] pid [15824] uid [501]
+10-17 12:06:53.254 dispatcher: VmInfo.pvi missing (concurrent warning; causality not established)
+10-17 12:06:53.261 F /disp:15739:9210a/ Received response PRL_ERR_VM_POWER_ON_FAILED (0xffffffd4) for DspCmdVmStart(1001) request from vm {VM_UUID} (name='Premium Linked Clone PoC')

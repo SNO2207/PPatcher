@@ -1,0 +1,35 @@
+10-17 12:14:40.284 F /vm:16387:950b8/ ***** VM process started
+10-17 12:14:59.213 F /vm:16387:950b8/ Vm args '/Applications/Parallels Desktop.app/Contents/MacOS//Parallels VM.app/Contents/MacOS/prl_vm_app' '--vm-name' 'Premium Linked Clone PoC' '--uuid' '{VM_UUID}' '--dir-uuid' '{VM_UUID}' '--log-dir' '<WORKSPACE>/work/runtime-tests/Premium Linked Clone PoC.pvm'
+10-17 12:14:59.213 F /prldirs:16387:950b8/ ParallelsDirs::Init() was called. build version: 27.0.3 (58680) Mon, 05 Oct 2026 10:29:42
+10-17 12:14:59.213 F /vm:16387:950b8/ Parallels Virtual Machine Constructed
+10-17 12:14:59.213 W /vm:16387:950b8/ Validating peer PID
+10-17 12:14:59.215 F /StateMachine:16387:950b8/ SARE state(unknown): initialized to SareStateStart
+10-17 12:14:59.215 F /StateMachine:16387:950b8/ VM state(unknown): initialized to VmStateNone
+10-17 12:14:59.223 F /StateMachine:16387:950b8/ VM state(VmStateNone): enqueued 'VmLocalCmdStart'(20001) command
+10-17 12:14:59.223 F /crypt:16387:95257/ Encryption plugin {VM_UUID} has been replaced to plugin {VM_UUID}
+10-17 12:14:59.223 F /vm:16387:95257/ =============================================================
+10-17 12:14:59.224 F /vm:16387:95257/  Parallels Desktop 27.0.3 (58680), Mon, 05 Oct 2026 10:29:42
+10-17 12:14:59.224 F /vm:16387:95257/  VM path: <WORKSPACE>/work/runtime-tests/Premium Linked Clone PoC.pvm/config.pvs
+10-17 12:14:59.224 F /vm:16387:95257/  VM conf: 4 CPU, 8192MB RAM, 64MB VRAM (Auto), Windows 11
+10-17 12:14:59.224 F /vm:16387:95257/  VM app mode: arm64
+10-17 12:14:59.224 F /vm:16387:95257/ -------------------------------------------------------------
+10-17 12:14:59.224 F /vm:16387:95257/ SCSI controller: not specified (in config not specified)
+10-17 12:14:59.226 F /vm:16387:95257/ Setting process verbose log level. bVerboseLogEnabled=0
+10-17 12:14:59.226 F /vm:16387:95257/ [Profile] SetVmConfig creation time is 2 msecs
+10-17 12:14:59.226 F /vm:16387:95257/ Failed to set VM configuration
+10-17 12:14:59.226 F /vm:16387:95257/ (!) Error: Throwing exception id=4294967252 (PRL_ERR_VM_POWER_ON_FAILED).
+10-17 12:14:59.226 F /StateMachine:16387:95257/ VM state(VmStateNone): completed current 'VmLocalCmdStart'(20001) command with result 0xffffffd4
+10-17 12:14:59.226 F /StateMachine:16387:95257/ VM state(VmStateNone): changed to VmStateStopped
+10-17 12:14:59.226 F /StateMachine:16387:95257/ SARE state(SareStateStart): enqueued 'SareCmdTerminate'(8) command
+10-17 12:14:59.226 W /vm:16387:95257/ VmDevicesStop
+10-17 12:14:59.226 F /StateMachine:16387:95255/ SARE state(SareStateStart): completed current 'SareCmdTerminate'(8) command with result 0xfffffff7
+10-17 12:14:59.226 F /vm:16387:95257/ [Profile] Shared printers temination time is 0 msecs
+10-17 12:14:59.226 F /LocalDevices:16387:95257/ adev_destroy_all: No connection with hypervisor.
+10-17 12:14:59.226 F /vm:16387:95257/ VM successfully stopped.
+10-17 12:14:59.227 F /vm:16387:95257/ Cannot create guest screenshot CPCIVideo pointer = 0x0
+10-17 12:14:59.227 F /vm:16387:95257/ Terminating VM Process ...
+10-17 12:14:59.227 F /vm:16387:950b8/ Wait for PC thread completion.
+10-17 12:14:59.227 F /vm:16387:950b8/ OK! Now going to destruct VM Controller.
+10-17 12:14:59.227 F /StateMachine:16387:950b8/ SARE state(SareStateStart): enqueued 'SareCmdTerminate'(8) command
+10-17 12:14:59.227 F /StateMachine:16387:950b8/ SARE state(SareStateStart): completed current 'SareCmdTerminate'(8) command with result 0xfffffff7
+10-17 12:14:59.228 F /vm:16387:950b8/ ***** VM process exiting with code 0
