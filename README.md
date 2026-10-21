@@ -203,7 +203,7 @@ A changed executable section, absent or ambiguous anchor, occupied code cave, or
 
 ### Apply the reviewed changes and sign locally
 
-The build reproduces **six client, two dispatcher, and three VM instruction changes**, plus signing-identity adjustments and a VM library-load command. The additional client change suppresses the blocking `-11079` counterfeit-warning dialog in the message filter; the upstream source of that status remains unproven. It replaces the dispatcher's expected Team ID with the local signing Team ID. After signing the dispatcher, it derives the actual CDHash for the VM peer-check helper while retaining the original dispatcher identifier check.
+The build reproduces **seven client, two dispatcher, and three VM instruction changes**, plus signing-identity adjustments and a VM library-load command. A client constructor change bypasses registration of the local counterfeit-warning timer; the earlier `-11079` message filter remains as a fallback. It replaces the dispatcher's expected Team ID with the local signing Team ID. After signing the dispatcher, it derives the actual CDHash for the VM peer-check helper while retaining the original dispatcher identifier check. See the [counterfeit-warning analysis](docs/counterfeit-warning.md) for the runtime call stack and exact patch site.
 
 The dispatcher is signed ad hoc with its original smartcard entitlement. The VM and interposition library use the local development identity; the outer app is signed ad hoc with the launchable client entitlement set. The staged application must pass `codesign --verify --deep --strict`.
 
@@ -320,7 +320,7 @@ There is currently **no `restore` or `uninstall` subcommand** in the one-file CL
 | [Licensing evidence](docs/Parallels_Licensing_Evidence.md) | Selected decompiler excerpts and original-code evidence |
 | [Edition checks](docs/edition-checks.md) | Feature membership, client gates, service checks, and CPU/RAM limits |
 | [Edition-check evidence](docs/Parallels_Edition_Checks_Evidence.md) | Locations and supporting excerpts for the reviewed edition checks |
-| [Counterfeit warning](docs/counterfeit-warning.md) | Error-code mapping, client message filter, patch scope, and one VM boot observation |
+| [Counterfeit warning](docs/counterfeit-warning.md) | Runtime producer, integrity timer, upstream patch, and verification |
 | [Networking investigation](docs/networking/README.md) | Root helper, XPC packet proxy, signing restrictions, tests, and limitations |
 | [Research history](docs/research-history.md) | Earlier profiles, failed attempts, and the sequence of follow-on experiments |
 

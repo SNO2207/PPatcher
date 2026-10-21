@@ -28,7 +28,7 @@ import tempfile
 import time
 import zlib
 
-VERSION = "1.1.0"
+VERSION = "1.2.0"
 EXPECTED_BUILD = "27.0.3 (58680)"
 APP_NAME = "Parallels Desktop.app"
 NET_LIBRARY = "@executable_path/../Frameworks/PoCVMNet.dylib"
@@ -60,6 +60,11 @@ ANCHOR_DATA.append({
     "name": "counterfeit-dialog-filter", "binary": "client", "va": 0x1001F1DF8,
     "before": "f657bda9", "after": "8240f817",
     "anchor": "fd7b42a9f44f41a9f657c3a8f03b1514f657bda9f44f01a9fd7b02a9fd830091f30301aa",
+})
+ANCHOR_DATA.append({
+    "name": "counterfeit-integrity-timer", "binary": "client", "va": 0x1000AD7B0,
+    "before": "00048052", "after": "14000014",
+    "anchor": "890000342909c05a08496938a802003500048052d1561a94e30300aa48058012097d8052",
 })
 COUNTERFEIT_CAVE_VA = 0x100002000
 COUNTERFEIT_CAVE = bytes.fromhex(
@@ -347,7 +352,8 @@ def build(source: Path, output: Path, identity: str, uid: int,
         changes = {}
         client, changes["client"] = patch_sites(blobs["client"], "client", {
             "linked-clone-menu", "clipboard-choices", "clipboard-normalization",
-            "new-vm-resource-clamp", "client-vm-boot-license", "counterfeit-dialog-filter"})
+            "new-vm-resource-clamp", "client-vm-boot-license", "counterfeit-dialog-filter",
+            "counterfeit-integrity-timer"})
         client, counterfeit_cave = patch_counterfeit_cave(client)
         changes["client"].append(counterfeit_cave)
         service, changes["service"] = patch_sites(blobs["service"], "service", {
