@@ -1,0 +1,11 @@
+# Counterfeit-warning dialog
+
+In Parallels Desktop 27.0.3 (58680) for ARM64, the blocking dialog headed “This copy of Parallels Desktop may not be genuine” corresponds to SDK error `0xFFFFD4B9` (`-11079`). The SDK's error-message table associates that code with the screenshot's title and detailed counterfeit warning. The client maps the same code to its sole “Get Genuine Copy” button.
+
+IDA shows that the client receives this as a `CMessageInfo` result. Its virtual `isMessageShouldBeSkipped` method at `0x1001F1DF8` already suppresses two unrelated result codes (`-34004` and `-34001`) and otherwise delegates to the shared GUI filter. The button-response handler separately checks `-11079` at `0x1001F3804` and launches the vendor link. Neither that handler nor the message table identifies the upstream detector. In the client, dispatcher, and VM executable databases reviewed here, no local producer of literal `-11079` was found. It may arrive in a license event from another component or a service response; that source remains unproven.
+
+The PoC adds an early `-11079` comparison to the client's existing skip method. Its entry branches to an unused executable header region at `0x100002000`. The helper reads `CMessageInfo::data()->result`; for `-11079` it returns true (skip). For every other code it replays the displaced prologue and returns to `0x1001F1DFC`, preserving the original filter. The patch changes the first four bytes at the method entry and writes 36 bytes in the checked, previously zero-filled header region. The one-file builder verifies the reviewed instruction anchor and empty region before patching, then re-signs and validates the bundle.
+
+On 21 October 2026, the locally installed build passed `codesign --verify --deep --strict`. The `Premium Linked Clone PoC` started through Control Center, remained running without the counterfeit modal appearing in the client window, and passed guest DNS and two HTTPS checks (`HTTP 200`, TLS verification success). This is one boot observation; it does not establish whether the same status will recur after a later license heartbeat.
+
+The change suppresses the modal for that result. It does not make the copy genuine, establish what generated the status, or repair any separate backend refusal to start or run a VM.

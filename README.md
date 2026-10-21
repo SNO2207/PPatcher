@@ -197,13 +197,13 @@ flowchart LR
 
 ### Validate before writing
 
-Each thin ARM64 Mach-O must match the reviewed executable `__TEXT.__text` SHA256. Every patch site must have a unique **16-byte context before and after** the original instructions and the expected address mapping. The script also checks the dispatcher's Team ID context and the empty executable space used by the VM peer helper.
+Each thin ARM64 Mach-O must match the reviewed executable `__TEXT.__text` SHA256. Every patch site must have a unique **16-byte context before and after** the original instructions and the expected address mapping. The script also checks the dispatcher's Team ID context and the empty executable spaces used by the VM peer helper and client message filter.
 
 A changed executable section, absent or ambiguous anchor, occupied code cave, or insufficient load-command padding stops the build. Matching a version label alone is insufficient.
 
 ### Apply the reviewed changes and sign locally
 
-The build reproduces **five client, two dispatcher, and three VM instruction changes**, plus signing-identity adjustments and a VM library-load command. It replaces the dispatcher's expected Team ID with the local signing Team ID. After signing the dispatcher, it derives the actual CDHash for the VM peer-check helper while retaining the original dispatcher identifier check.
+The build reproduces **six client, two dispatcher, and three VM instruction changes**, plus signing-identity adjustments and a VM library-load command. The additional client change suppresses the blocking `-11079` counterfeit-warning dialog in the message filter; the upstream source of that status remains unproven. It replaces the dispatcher's expected Team ID with the local signing Team ID. After signing the dispatcher, it derives the actual CDHash for the VM peer-check helper while retaining the original dispatcher identifier check.
 
 The dispatcher is signed ad hoc with its original smartcard entitlement. The VM and interposition library use the local development identity; the outer app is signed ad hoc with the launchable client entitlement set. The staged application must pass `codesign --verify --deep --strict`.
 
@@ -320,6 +320,7 @@ There is currently **no `restore` or `uninstall` subcommand** in the one-file CL
 | [Licensing evidence](docs/Parallels_Licensing_Evidence.md) | Selected decompiler excerpts and original-code evidence |
 | [Edition checks](docs/edition-checks.md) | Feature membership, client gates, service checks, and CPU/RAM limits |
 | [Edition-check evidence](docs/Parallels_Edition_Checks_Evidence.md) | Locations and supporting excerpts for the reviewed edition checks |
+| [Counterfeit warning](docs/counterfeit-warning.md) | Error-code mapping, client message filter, patch scope, and one VM boot observation |
 | [Networking investigation](docs/networking/README.md) | Root helper, XPC packet proxy, signing restrictions, tests, and limitations |
 | [Research history](docs/research-history.md) | Earlier profiles, failed attempts, and the sequence of follow-on experiments |
 
